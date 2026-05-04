@@ -1,5 +1,6 @@
 site_name: Owca PL — Dokumentacja projektu
 site_description: Dokumentacja projektu aplikacji Owca PL
+site_url: https://tomekwlqq.github.io/owca-docs/
 docs_dir: docs
 site_dir: site
 
