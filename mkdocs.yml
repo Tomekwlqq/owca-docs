@@ -1,0 +1,40 @@
+site_name: Owca PL — Dokumentacja projektu
+site_description: Dokumentacja projektu aplikacji Owca PL
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: pl
+  palette:
+    primary: deep purple
+    accent: purple
+  font:
+    text: Inter
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Start: roadmap.md
+  - Dokumentacja:
+    - Specyfikacja funkcjonalna: functional_spec.md
+    - Mapa ekranów: screen_map.md
+    - Cykl życia danych: data_lifecycle.md
+    - Braki i decyzje: gaps_and_decisions.md
+  - Dziennik projektu:
+    - Historia projektu: obsidian_historia_projektu.md
+    - Dev setup: obsidian_plan_dev_setup.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
