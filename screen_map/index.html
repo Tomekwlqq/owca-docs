@@ -1,0 +1,1551 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentacja projektu aplikacji Owca PL">
+      
+      
+      
+        <link rel="canonical" href="https://tomekwlqq.github.io/owca-docs/screen_map/">
+      
+      
+        <link rel="prev" href="../functional_spec/">
+      
+      
+        <link rel="next" href="../data_lifecycle/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Mapa ekranów - Owca PL — Dokumentacja projektu</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#owca-pl-mapa-ekranow-i-nawigacji" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-header__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Owca PL — Dokumentacja projektu
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mapa ekranów
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../functional_spec/" class="md-tabs__link">
+          
+  
+  
+  Dokumentacja
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../obsidian_historia_projektu/" class="md-tabs__link">
+          
+  
+  
+  Dziennik projektu
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-nav__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Owca PL — Dokumentacja projektu
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dokumentacja
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dokumentacja
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functional_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specyfikacja funkcjonalna
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa ekranów
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa ekranów
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktura-nawigacji-gownej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Struktura nawigacji głównej
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#01-dashboard-ekran-gowny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 — Dashboard (Ekran główny)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-zwierzeta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 — Zwierzęta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="02 — Zwierzęta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0201-lista-zwierzat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0201 Lista zwierząt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0202-karta-tryka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0202 Karta tryka
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0203-karta-owcy-maciorki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0203 Karta owcy (maciorki)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0204-dodawanie-zwierzecia-z-dashboardu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0204 Dodawanie zwierzęcia — z Dashboardu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-rozrod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 — Rozród
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="03 — Rozród">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0305-dodawanie-tryka-z-moduu-rozrod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0305 Dodawanie tryka — z modułu Rozród
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0302-tworzenie-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0302 Tworzenie grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0303-planowanie-stanowki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0303 Planowanie stanówki
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0304-statystyki-rozrodu-kalendarz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0304 Statystyki rozrodu + Kalendarz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04-leczenie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 — Leczenie
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="04 — Leczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0401-lista-i-formularz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0401 Lista i formularz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05-karencje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 — Karencje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="05 — Karencje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0501-tabela-karencji-w-stadzie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0501 Tabela karencji w stadzie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#06-porody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 — Porody
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="06 — Porody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0601-rejestracja-porodu-wizard-4-krokowy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0601 Rejestracja porodu (wizard 4-krokowy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podsumowanie-moduow-i-plikow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Podsumowanie modułów i plików
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#globalny-diagram-nawigacji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Globalny diagram nawigacji
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cykl życia danych
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gaps_and_decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braki i decyzje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dziennik projektu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dziennik projektu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_historia_projektu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Historia projektu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_plan_dev_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktura-nawigacji-gownej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Struktura nawigacji głównej
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#01-dashboard-ekran-gowny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 — Dashboard (Ekran główny)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-zwierzeta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 — Zwierzęta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="02 — Zwierzęta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0201-lista-zwierzat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0201 Lista zwierząt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0202-karta-tryka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0202 Karta tryka
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0203-karta-owcy-maciorki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0203 Karta owcy (maciorki)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0204-dodawanie-zwierzecia-z-dashboardu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0204 Dodawanie zwierzęcia — z Dashboardu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-rozrod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 — Rozród
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="03 — Rozród">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0305-dodawanie-tryka-z-moduu-rozrod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0305 Dodawanie tryka — z modułu Rozród
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0302-tworzenie-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0302 Tworzenie grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0303-planowanie-stanowki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0303 Planowanie stanówki
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0304-statystyki-rozrodu-kalendarz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0304 Statystyki rozrodu + Kalendarz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04-leczenie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 — Leczenie
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="04 — Leczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0401-lista-i-formularz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0401 Lista i formularz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05-karencje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 — Karencje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="05 — Karencje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0501-tabela-karencji-w-stadzie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0501 Tabela karencji w stadzie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#06-porody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 — Porody
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="06 — Porody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0601-rejestracja-porodu-wizard-4-krokowy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0601 Rejestracja porodu (wizard 4-krokowy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podsumowanie-moduow-i-plikow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Podsumowanie modułów i plików
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#globalny-diagram-nawigacji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Globalny diagram nawigacji
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="owca-pl-mapa-ekranow-i-nawigacji">Owca PL — Mapa Ekranów i Nawigacji<a class="headerlink" href="#owca-pl-mapa-ekranow-i-nawigacji" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Wersja: 2.0 | Data: 2026-05-01<br />
+Źródło: 95 screenshotów z Figmy<br />
+Nazwy plików: <code>screens/{moduł}/{ekran}/{plik}.png</code></p>
+</blockquote>
+<hr />
+<h2 id="struktura-nawigacji-gownej">Struktura nawigacji głównej<a class="headerlink" href="#struktura-nawigacji-gownej" title="Permanent link">&para;</a></h2>
+<p>Aplikacja używa <strong>bottom tab bar</strong> z 5 zakładkami:</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────┐
+│                   STODOŁA                           │
+├──────┬──────────┬──────────┬──────────┬─────────────┤
+│ Home │ Zwierzęta│  Rozród  │ Leczenie │  Więcej...  │
+└──────┴──────────┴──────────┴──────────┴─────────────┘
+</code></pre></div>
+<p>Zakładka „Więcej" daje dostęp do: Karencje, Kalendarz, Statystyki, Konto.</p>
+<hr />
+<h2 id="01-dashboard-ekran-gowny">01 — Dashboard (Ekran główny)<a class="headerlink" href="#01-dashboard-ekran-gowny" title="Permanent link">&para;</a></h2>
+<p><strong>Nawigacja modułów</strong> (<code>0101_ekran_glowny.png</code>):
+- Lista zwierząt, Leczenie, Statystyki, Karencje (z licznikiem aktywnych)</p>
+<p><strong>Quick Actions</strong> (<code>0101_quick_actions.png</code>):
+- Dodaj zwierzę, Dodaj poród, Stwórz grupę, Dodaj leczenie</p>
+<div class="highlight"><pre><span></span><code>Dashboard
+├── → Lista zwierząt (0201)
+├── → Leczenie / Lista (0401)
+├── → Karencje w stadzie (0501)
+├── → Statystyki rozrodu (0304)
+├── Quick: → Dodaj zwierzę (0204)
+├── Quick: → Dodaj poród (0601)
+├── Quick: → Stwórz grupę krycia (0302)
+└── Quick: → Dodaj leczenie (0401 formularz)
+</code></pre></div>
+<hr />
+<h2 id="02-zwierzeta">02 — Zwierzęta<a class="headerlink" href="#02-zwierzeta" title="Permanent link">&para;</a></h2>
+<h3 id="0201-lista-zwierzat">0201 Lista zwierząt<a class="headerlink" href="#0201-lista-zwierzat" title="Permanent link">&para;</a></h3>
+<p><strong>Funkcje widoczne na ekranie:</strong>
+- Wyszukiwanie po numerze / nazwie
+- Filtry (płeć, status), sortowanie
+- Podsumowanie stada (3 liczniki: Tryki / Owce / Urodzone)
+- Karta zwierzęcia: numer PL, płeć, rasa, waga, ikony statusu</p>
+<div class="highlight"><pre><span></span><code>Lista zwierząt (0201)
+├── Tap na kartę → Karta tryka (0202) lub Karta owcy (0203)
+├── FAB &quot;+&quot; → Dodaj zwierzę (0204)
+└── NFC scan → Karta zwierzęcia (0202/0203)
+</code></pre></div>
+<hr />
+<h3 id="0202-karta-tryka">0202 Karta tryka<a class="headerlink" href="#0202-karta-tryka" title="Permanent link">&para;</a></h3>
+<p><strong>Certyfikat tryka</strong> zawiera:
+- Numer PL, numer kolczyka, rasa, linia hodowlana
+- Data urodzenia, typ urodzenia
+- Masa 10/30/56 dni + aktualna
+- Genotyp PPG i POD-IN, numer księgi, data licencji
+- Hodowca, właściciel</p>
+<p><strong>Rodowód</strong> — drzewo pedigree:
+- 2 pokolenia domyślnie (ojciec + matka)
+- Expandable: tap na przodka → rozwinięcie do dziadków</p>
+<div class="highlight"><pre><span></span><code>Karta tryka (0202)
+├── Toggle → Certyfikat / Rodowód
+├── Rodowód: tap na przodka → rozwinięcie (inline)
+└── ← Wstecz → Lista zwierząt (0201)
+</code></pre></div>
+<hr />
+<h3 id="0203-karta-owcy-maciorki">0203 Karta owcy (maciorki)<a class="headerlink" href="#0203-karta-owcy-maciorki" title="Permanent link">&para;</a></h3>
+<p><strong>Różnice vs. karta tryka:</strong>
+- Dodatkowa sekcja: <strong>Plenność</strong> (historia miotów, wskaźnik)
+- Brak: data licencji</p>
+<hr />
+<h3 id="0204-dodawanie-zwierzecia-z-dashboardu">0204 Dodawanie zwierzęcia — z Dashboardu<a class="headerlink" href="#0204-dodawanie-zwierzecia-z-dashboardu" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>⚠️ To jest flow <strong>ogólny</strong> — ma pole <strong>Płeć</strong> (Owca / Tryk).<br />
+Różni się od dodawania tryka (0305) gdzie płeć jest zakładana z góry.</p>
+</blockquote>
+<p><strong>Pola formularza świadectwa:</strong>
+- Numer identyfikacyjny (PL), System identyfikacyjny: Kolczyk / Chip
+- <strong>Płeć: Owca / Tryk</strong> ← tylko tutaj
+- Rasa, Data urodzenia, Typ urodzenia / odchowu
+- Genotyp, Księga, Indeks, Masy 10/30/56 dni</p>
+<p><strong>Formularz rodowodu</strong> (krok 2):
+- Ojciec i matka: numer PL lub NFC
+- Dziadkowie (opcjonalne)</p>
+<div class="highlight"><pre><span></span><code>Dashboard → Quick Action &quot;Dodaj zwierzę&quot;
+└── 0204: Formularz świadectwa (z Płcią)
+    └── Krok 2: Formularz rodowodu
+        └── Zapisz → Lista zwierząt (0201)
+</code></pre></div>
+<hr />
+<h2 id="03-rozrod">03 — Rozród<a class="headerlink" href="#03-rozrod" title="Permanent link">&para;</a></h2>
+<h3 id="0305-dodawanie-tryka-z-moduu-rozrod">0305 Dodawanie tryka — z modułu Rozród<a class="headerlink" href="#0305-dodawanie-tryka-z-moduu-rozrod" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>⚠️ <strong>Brak pola Płeć</strong> — tryk wiadomy z kontekstu.<br />
+Przycisk końcowy: "Zapisz tryka do rozrodu" (nie "Zapisz zwierzę").</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>Moduł Rozród → Lista tryków / Tworzenie grupy
+└── 0305: Formularz świadectwa tryka (bez Płci)
+    └── Krok 2: Formularz rodowodu
+        └── &quot;Zapisz tryka do rozrodu&quot; → powrót do Rozrodu
+</code></pre></div>
+<hr />
+<h3 id="0302-tworzenie-grupy-krycia">0302 Tworzenie grupy krycia<a class="headerlink" href="#0302-tworzenie-grupy-krycia" title="Permanent link">&para;</a></h3>
+<p>Cztery typy grup, każdy z osobnym wizard flow:</p>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Dobór par</th>
+<th>Tryk</th>
+<th>Inbred</th>
+<th>Kroki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ręcznie (<code>r</code>)</td>
+<td>Hodowca</td>
+<td>Własny</td>
+<td>Tak, per para</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Automatycznie (<code>a</code>)</td>
+<td>System (min. inbred)</td>
+<td>Własny</td>
+<td>Tak, auto</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Inseminacja (<code>i</code>)</td>
+<td>Hodowca</td>
+<td>Zewnętrzny dawca</td>
+<td>Tak</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Towarowe (<code>t</code>)</td>
+<td>Wszystkie owce 1 tryk</td>
+<td>Własny</td>
+<td>Nie</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>Stwórz grupę krycia (0302)
+├── Wybór typu → właściwy wizard (r/a/i/t)
+├── Każdy wizard: wielokrokowy formularz
+└── Zapisz → Planowanie stanówki (0303)
+</code></pre></div>
+<hr />
+<h3 id="0303-planowanie-stanowki">0303 Planowanie stanówki<a class="headerlink" href="#0303-planowanie-stanowki" title="Permanent link">&para;</a></h3>
+<p><strong>Funkcje:</strong>
+- Lista wszystkich grup krycia (bieżący sezon)
+- Status grupy: Planowana / W trakcie / Zakończona
+- Licznik „W trakcie: X dni"
+- Planowany termin porodów (+147 dni od daty stanówki)
+- Przycisk „Zakończ stanówkę"</p>
+<div class="highlight"><pre><span></span><code>Lista grup krycia (0303)
+├── Tap na grupę → Szczegóły grupy
+├── FAB &quot;+&quot; → Stwórz grupę (0302)
+└── Szczegóły: Zakończ stanówkę → aktualizuje status
+</code></pre></div>
+<hr />
+<h3 id="0304-statystyki-rozrodu-kalendarz">0304 Statystyki rozrodu + Kalendarz<a class="headerlink" href="#0304-statystyki-rozrodu-kalendarz" title="Permanent link">&para;</a></h3>
+<p><strong>Kalendarz:</strong>
+- Widok miesięczny, nawigacja prev/next
+- Dni z wydarzeniami podświetlone
+- Tap na dzień → lista zdarzeń</p>
+<p><strong>Statystyki rozrodu:</strong>
+- Dropdown picker roku (historia od 2020)
+- Karta sezonu: łączne urodzenia / żywe / martwe (z podziałem ♂/♀)
+- Lista grup z wynikami per sezon</p>
+<hr />
+<h2 id="04-leczenie">04 — Leczenie<a class="headerlink" href="#04-leczenie" title="Permanent link">&para;</a></h2>
+<h3 id="0401-lista-i-formularz">0401 Lista i formularz<a class="headerlink" href="#0401-lista-i-formularz" title="Permanent link">&para;</a></h3>
+<p><strong>Lista zdarzeń:</strong>
+- Typy zdarzeń: 💊 Leczenie | 💉 Szczepienie | ⚖️ Ważenie
+- Karta zdarzenia: numer zwierzęcia, typ, data, lek, karencja pozostała</p>
+<p><strong>Formularz dodania zdarzenia:</strong>
+- Numer zwierzęcia (wpisz lub NFC)
+- Data zdarzenia, Typ (toggle)
+- Opis / powód, Weterynarz
+- Preparat: nazwa + seria + dawka
+- Karencja mięso (godziny) + mleko (dni)
+- Zdjęcia dokumentacyjne</p>
+<div class="highlight"><pre><span></span><code>Lista leczenia (0401)
+├── Tap na wpis → Szczegóły wpisu
+├── FAB &quot;+&quot; → Formularz dodania
+└── Formularz: Zapisz → Lista
+</code></pre></div>
+<hr />
+<h2 id="05-karencje">05 — Karencje<a class="headerlink" href="#05-karencje" title="Permanent link">&para;</a></h2>
+<h3 id="0501-tabela-karencji-w-stadzie">0501 Tabela karencji w stadzie<a class="headerlink" href="#0501-tabela-karencji-w-stadzie" title="Permanent link">&para;</a></h3>
+<p><strong>Funkcje:</strong>
+- Tabela wszystkich zwierząt z <strong>aktywnymi</strong> karencjami
+- Kolumny: Numer zwierzęcia | Mięso (dni) | Mleko (dni)
+- Sortowanie malejąco (najdłuższa karencja na górze)
+- Wyszukiwanie po numerze PL lub NFC scan</p>
+<div class="highlight"><pre><span></span><code>Karencje (0501)
+├── Tap na zwierzę → Karta zwierzęcia (0202/0203)
+└── ← Wstecz → Dashboard
+</code></pre></div>
+<hr />
+<h2 id="06-porody">06 — Porody<a class="headerlink" href="#06-porody" title="Permanent link">&para;</a></h2>
+<h3 id="0601-rejestracja-porodu-wizard-4-krokowy">0601 Rejestracja porodu (wizard 4-krokowy)<a class="headerlink" href="#0601-rejestracja-porodu-wizard-4-krokowy" title="Permanent link">&para;</a></h3>
+<p><strong>Krok 1 — Matka</strong> (<code>06011</code>):
+- Wpisz numer PL matki lub skanuj NFC
+- Przycisk „Dalej" nieaktywny dopóki numer nie wpisany</p>
+<p><strong>Krok 2 — Poród</strong> (<code>06012</code>):
+- Data porodu (datepicker)
+- Przebieg: Naturalny / Z asystą / Ciężki (selector)
+- Liczba jagniąt: dropdown 1–6</p>
+<p><strong>Krok 3 — Jagnięta</strong> (<code>06013</code>):
+- Per jagnię: Numer PL + Status (Żywe / Martwe / Z wadą) + Masa urodzeniowa
+- Menu „Zakończ": z opcją zgłoszenia do IRZ lub bez</p>
+<p><strong>Krok 4 — Podsumowanie</strong> (<code>06014</code>):
+- Przegląd wszystkich danych przed zapisem
+- Przyciski: Zapisz / Wróć do edycji</p>
+<div class="highlight"><pre><span></span><code>Rejestracja porodu (0601)
+├── Krok 1: Matka (numer PL / NFC)
+├── Krok 2: Data + Przebieg + Liczba jagniąt
+├── Krok 3: Dane jagniąt per sztuka
+└── Krok 4: Podsumowanie → Zapisz
+</code></pre></div>
+<hr />
+<h2 id="podsumowanie-moduow-i-plikow">Podsumowanie modułów i plików<a class="headerlink" href="#podsumowanie-moduow-i-plikow" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moduł</th>
+<th>Ekranów/flows</th>
+<th>Plików PNG</th>
+<th>Status Figma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 Dashboard</td>
+<td>2</td>
+<td>2</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>02 Zwierzęta</td>
+<td>4 ekrany</td>
+<td>31</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>03 Rozród</td>
+<td>4 flows + lista + statystyki</td>
+<td>24</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>04 Leczenie</td>
+<td>Lista + formularz</td>
+<td>11</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>05 Karencje</td>
+<td>Tabela</td>
+<td>3</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>06 Porody</td>
+<td>Wizard 4 kroki</td>
+<td>9</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>09 Design System</td>
+<td>Komponenty</td>
+<td>13</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>08 Konto</td>
+<td>—</td>
+<td>0</td>
+<td>❌ do zaprojektowania</td>
+</tr>
+<tr>
+<td><strong>Łącznie</strong></td>
+<td></td>
+<td><strong>93+</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="globalny-diagram-nawigacji">Globalny diagram nawigacji<a class="headerlink" href="#globalny-diagram-nawigacji" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>                    ┌─────────────┐
+                    │  DASHBOARD  │ (0101)
+                    └──────┬──────┘
+          ┌─────────┬───────┼────────┬──────────┐
+          ▼         ▼       ▼        ▼          ▼
+    ┌──────────┐ ┌──────┐ ┌──────┐ ┌────────┐ ┌──────────┐
+    │ Lista    │ │Rozród│ │Porody│ │Leczenie│ │Karencje  │
+    │zwierząt  │ │(0303)│ │(0601)│ │ (0401) │ │  (0501)  │
+    │  (0201)  │ └──┬───┘ └──┬───┘ └────────┘ └──────────┘
+    └────┬─────┘    │        │
+         │          │        └──→ Karta zwierzęcia (0202/0203)
+    ┌────┴─────┐    │
+    │ Karta    │◄───┘
+    │ tryka    │
+    │ (0202)   │
+    └──────────┘
+</code></pre></div>
+<hr />
+<p><em>Plik wygenerowany na podstawie 95 screenshotów Figma.</em><br />
+<em>Następny krok: zaprojektowanie modułu 08 Konto.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

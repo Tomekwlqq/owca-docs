@@ -1,0 +1,1433 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentacja projektu aplikacji Owca PL">
+      
+      
+      
+        <link rel="canonical" href="https://tomekwlqq.github.io/owca-docs/gaps_and_decisions/">
+      
+      
+        <link rel="prev" href="../data_lifecycle/">
+      
+      
+        <link rel="next" href="../obsidian_historia_projektu/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Braki i decyzje - Owca PL — Dokumentacja projektu</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#owca-pl-braki-i-decyzje-do-podjecia" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-header__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Owca PL — Dokumentacja projektu
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Braki i decyzje
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../functional_spec/" class="md-tabs__link">
+          
+  
+  
+  Dokumentacja
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../obsidian_historia_projektu/" class="md-tabs__link">
+          
+  
+  
+  Dziennik projektu
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-nav__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Owca PL — Dokumentacja projektu
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dokumentacja
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dokumentacja
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functional_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specyfikacja funkcjonalna
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screen_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa ekranów
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cykl życia danych
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braki i decyzje
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braki i decyzje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-co-mamy-czego-brakuje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STATUS: Co mamy, czego brakuje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STATUS: Co mamy, czego brakuje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rozwiazane-w-tej-iteracji-byo-brak-w-figmie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Rozwiązane w tej iteracji (było: "brak w Figmie")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nadal-brakuje-w-figmie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Nadal brakuje w Figmie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otwarte-decyzje-techniczne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTWARTE DECYZJE TECHNICZNE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTWARTE DECYZJE TECHNICZNE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d1-algorytm-inbredu-implementacja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D1 — Algorytm inbredu: implementacja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d2-pula-numerow-pl-skad-pochodzi-zakres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D2 — Pula numerów PL: skąd pochodzi zakres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3-generowanie-pdf-certyfikatow-gdzie-i-jak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D3 — Generowanie PDF certyfikatów: gdzie i jak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d4-integracja-z-irzarimr-api-czy-plik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D4 — Integracja z IRZ/ARiMR: API czy plik
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d5-formularz-wazenia-osobny-czy-czesc-leczenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D5 — Formularz ważenia: osobny czy część leczenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d6-wizard-porodu-krok-zakoncz-bez-zgaszania-vs-zgos-do-irz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D6 — Wizard porodu: krok "zakończ bez zgłaszania" vs "zgłoś do IRZ"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d7-krycie-towarowe-inbred-nie-jest-liczony" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D7 — Krycie towarowe: inbred nie jest liczony
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d8-status-jagniecia-z-wada-co-to-znaczy-dla-systemu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D8 — Status jagnięcia "Z wadą": co to znaczy dla systemu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wnioski-z-analizy-systemu-festada-cz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WNIOSKI Z ANALIZY SYSTEMU FESTADA (CZ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WNIOSKI Z ANALIZY SYSTEMU FESTADA (CZ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uwzglednione-juz-w-designie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uwzględnione (już w designie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odrzucone-swiadomie-lepsza-architektura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Odrzucone świadomie (lepsza architektura)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-przemyslenia-festada-ma-my-nie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do przemyślenia (Festada ma, my nie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decyzje-ux-z-figmy-potwierdzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECYZJE UX (z Figmy, potwierdzone)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nastepne-kroki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASTĘPNE KROKI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dziennik projektu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dziennik projektu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_historia_projektu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Historia projektu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_plan_dev_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-co-mamy-czego-brakuje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STATUS: Co mamy, czego brakuje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STATUS: Co mamy, czego brakuje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rozwiazane-w-tej-iteracji-byo-brak-w-figmie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Rozwiązane w tej iteracji (było: "brak w Figmie")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nadal-brakuje-w-figmie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Nadal brakuje w Figmie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#otwarte-decyzje-techniczne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTWARTE DECYZJE TECHNICZNE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTWARTE DECYZJE TECHNICZNE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d1-algorytm-inbredu-implementacja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D1 — Algorytm inbredu: implementacja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d2-pula-numerow-pl-skad-pochodzi-zakres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D2 — Pula numerów PL: skąd pochodzi zakres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3-generowanie-pdf-certyfikatow-gdzie-i-jak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D3 — Generowanie PDF certyfikatów: gdzie i jak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d4-integracja-z-irzarimr-api-czy-plik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D4 — Integracja z IRZ/ARiMR: API czy plik
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d5-formularz-wazenia-osobny-czy-czesc-leczenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D5 — Formularz ważenia: osobny czy część leczenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d6-wizard-porodu-krok-zakoncz-bez-zgaszania-vs-zgos-do-irz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D6 — Wizard porodu: krok "zakończ bez zgłaszania" vs "zgłoś do IRZ"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d7-krycie-towarowe-inbred-nie-jest-liczony" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D7 — Krycie towarowe: inbred nie jest liczony
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d8-status-jagniecia-z-wada-co-to-znaczy-dla-systemu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D8 — Status jagnięcia "Z wadą": co to znaczy dla systemu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wnioski-z-analizy-systemu-festada-cz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WNIOSKI Z ANALIZY SYSTEMU FESTADA (CZ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WNIOSKI Z ANALIZY SYSTEMU FESTADA (CZ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uwzglednione-juz-w-designie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uwzględnione (już w designie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odrzucone-swiadomie-lepsza-architektura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Odrzucone świadomie (lepsza architektura)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-przemyslenia-festada-ma-my-nie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do przemyślenia (Festada ma, my nie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decyzje-ux-z-figmy-potwierdzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECYZJE UX (z Figmy, potwierdzone)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nastepne-kroki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASTĘPNE KROKI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="owca-pl-braki-i-decyzje-do-podjecia">Owca PL — Braki i Decyzje do Podjęcia<a class="headerlink" href="#owca-pl-braki-i-decyzje-do-podjecia" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Wersja: 2.0 | Data: 2026-05-01<br />
+Aktualizacja: po analizie 95 screenshotów Figma + systemu Festada (CZ)</p>
+</blockquote>
+<hr />
+<h2 id="status-co-mamy-czego-brakuje">STATUS: Co mamy, czego brakuje<a class="headerlink" href="#status-co-mamy-czego-brakuje" title="Permanent link">&para;</a></h2>
+<h3 id="rozwiazane-w-tej-iteracji-byo-brak-w-figmie">✅ Rozwiązane w tej iteracji (było: "brak w Figmie")<a class="headerlink" href="#rozwiazane-w-tej-iteracji-byo-brak-w-figmie" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Poprzednia luka</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>Dashboard brak w Figmie</td>
+<td>✅ Mamy: <code>0101_ekran_glowny.png</code> + <code>0101_quick_actions.png</code></td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Lista zwierząt brak w Figmie</td>
+<td>✅ Mamy: 3 screenshoty (lista, karty, podsumowanie)</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>Wizard porodu niekompletny</td>
+<td>✅ Mamy: pełny wizard 4 kroki + komponenty</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>Typy grup krycia niejasne</td>
+<td>✅ Mamy: 4 osobne wizard flows (r/a/i/t), łącznie 20 screenshotów</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>Komponenty porodu (status jagnięcia, przebieg)</td>
+<td>✅ Mamy: osobne screenshoty komponentów</td>
+</tr>
+<tr>
+<td>L6</td>
+<td>Widok statystyk rozrodu</td>
+<td>✅ Mamy: 4 screenshoty (kalendarz, lista grup, picker roku, karta sezonu)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nadal-brakuje-w-figmie">❌ Nadal brakuje w Figmie<a class="headerlink" href="#nadal-brakuje-w-figmie" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Brakujący moduł/ekran</th>
+<th>Priorytet</th>
+<th>Notatka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>Moduł 08 Konto / Ustawienia</td>
+<td>Must Have</td>
+<td>Dane hodowcy, IRZ, pula numerów PL</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>Ekran zmiany statusu zwierzęcia</td>
+<td>Should Have</td>
+<td>Żywy → padł / sprzedany / ubity / zaginiony</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Historia wag / wykres wag</td>
+<td>Should Have</td>
+<td>Per zwierzę, widok chronologiczny</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>Ekran/flow importu z IRZ</td>
+<td>Could Have</td>
+<td>Może być w module Konto</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Ekran skanowania świadectwa PZO (OCR)</td>
+<td>Could Have</td>
+<td>Import ze Związku</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>Formularz dodania ważenia</td>
+<td>Should Have</td>
+<td>Typ zdarzenia Ważenie — osobny formularz?</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>Powiadomienia push (karencje, terminy)</td>
+<td>Could Have</td>
+<td>UX tych powiadomień nie zaprojektowany</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>Onboarding / ekran powitalny</td>
+<td>Must Have (pre-launch)</td>
+<td>Pierwszy raz w aplikacji</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="otwarte-decyzje-techniczne">OTWARTE DECYZJE TECHNICZNE<a class="headerlink" href="#otwarte-decyzje-techniczne" title="Permanent link">&para;</a></h2>
+<h3 id="d1-algorytm-inbredu-implementacja">D1 — Algorytm inbredu: implementacja<a class="headerlink" href="#d1-algorytm-inbredu-implementacja" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Jak głęboko liczyć drzewo pedigree przy obliczaniu współczynnika Wrighta?</p>
+<p><strong>Kontekst:</strong> Festada (CZ) importuje gotową macierz inbredu z pliku Excel — nie liczy na bieżąco. Nasz design zakłada obliczanie inline w aplikacji (offline-first).</p>
+<p><strong>Opcje:</strong>
+- A) Max 4 pokolenia wstecz (wystarczy dla ~99% praktycznych przypadków)
+- B) Pełna głębokość (rekurencja po drzewie do liści)
+- C) Cache na poziomie pary tryk–owca (oblicz raz, zapisz w <code>breeding_group_ewes.inbreeding_coefficient</code>)</p>
+<p><strong>Rekomendacja:</strong> Opcja A+C — 4 pokolenia + cache per para. Wystarczające dla hodowcy, optymalne na urządzeniu.</p>
+<p><strong>Decyzja: ⬜ do podjęcia</strong></p>
+<hr />
+<h3 id="d2-pula-numerow-pl-skad-pochodzi-zakres">D2 — Pula numerów PL: skąd pochodzi zakres<a class="headerlink" href="#d2-pula-numerow-pl-skad-pochodzi-zakres" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Czy hodowca ręcznie wpisuje zakres numerów PL, czy integracja z IRZ/ARiMR go dostarcza?</p>
+<p><strong>Kontekst:</strong> Każdy hodowca ma przydzielony zakres numerów przez ARiMR. W teorii można go pobrać przez API IRZ, ale API może być niedostępne offline.</p>
+<p><strong>Opcje:</strong>
+- A) Hodowca wpisuje zakres ręcznie (np. "PL10 00278 6000 0" – "PL10 00278 6999 9")
+- B) Import z ARiMR API (wymaga internetu przy pierwszej konfiguracji)
+- C) Hybryd: import raz przy instalacji, potem offline</p>
+<p><strong>Rekomendacja:</strong> C — import raz, cache lokalnie. Przy braku API: fallback do opcji A.</p>
+<p><strong>Decyzja: ⬜ do podjęcia</strong></p>
+<hr />
+<h3 id="d3-generowanie-pdf-certyfikatow-gdzie-i-jak">D3 — Generowanie PDF certyfikatów: gdzie i jak<a class="headerlink" href="#d3-generowanie-pdf-certyfikatow-gdzie-i-jak" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> PDF generowany na urządzeniu czy przez serwer?</p>
+<p><strong>Opcje:</strong>
+- A) Na urządzeniu: <code>react-native-html-to-pdf</code> (HTML template → PDF)
+- B) Na urządzeniu: biblioteka JS (jsPDF, pdfmake)
+- C) Na serwerze (Supabase Edge Function lub dedykowany serwis) — wymaga internetu</p>
+<p><strong>Kontekst:</strong> Certyfikat PZO ma ściśle określony format graficzny. Na urządzeniu trudno zachować pixel-perfect układ.</p>
+<p><strong>Rekomendacja:</strong> C dla pierwszej wersji (wymaga netu, ale robi dokładny PDF). A jako fallback dla offline.</p>
+<p><strong>Decyzja: ⬜ do podjęcia</strong></p>
+<hr />
+<h3 id="d4-integracja-z-irzarimr-api-czy-plik">D4 — Integracja z IRZ/ARiMR: API czy plik<a class="headerlink" href="#d4-integracja-z-irzarimr-api-czy-plik" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Czy aplikacja komunikuje się bezpośrednio z API ARiMR, czy import/eksport przez plik (CSV/Excel)?</p>
+<p><strong>Kontekst:</strong> API ARiMR istnieje, ale wymaga rejestracji jako podmiot zewnętrzny. Alternatywnie: hodowca eksportuje dane ręcznie z portalu IRZ i importuje plik.</p>
+<p><strong>Opcje:</strong>
+- A) API ARiMR (automatyczna sync)
+- B) Import pliku CSV/Excel (manual, ale niezależny od API)
+- C) Oba — API gdy dostępne, plik jako fallback</p>
+<p><strong>Rekomendacja:</strong> B najpierw (szybsza implementacja, nie wymaga umowy z ARiMR). A w późniejszej wersji.</p>
+<p><strong>Decyzja: ⬜ do podjęcia</strong></p>
+<hr />
+<h3 id="d5-formularz-wazenia-osobny-czy-czesc-leczenia">D5 — Formularz ważenia: osobny czy część leczenia<a class="headerlink" href="#d5-formularz-wazenia-osobny-czy-czesc-leczenia" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Czy ważenie (zdarzenie typu "weighing") ma własny uproszczony formularz, czy zawsze przechodzi przez pełny formularz leczenia?</p>
+<p><strong>Kontekst:</strong> Na screenshotach formularz leczenia ma domyślnie zaznaczoną opcję "Ważenie" gdy jest pusty, co sugeruje że ważenie jest podzbiorem leczenia. Ale ważenie nie wymaga pól: lek, seria, dawka, karencje, weterynarz.</p>
+<p><strong>Opcje:</strong>
+- A) Jeden formularz — pola dla leków/karencji są ukryte gdy typ = Ważenie
+- B) Dwa osobne formularze — uproszczony dla ważenia, pełny dla leczenia/szczepienia</p>
+<p><strong>Rekomendacja:</strong> A — jeden formularz z dynamicznym ukrywaniem pól. Prostszy UX, jeden ekran do utrzymania.</p>
+<p><strong>Decyzja: ⬜ do podjęcia</strong></p>
+<hr />
+<h3 id="d6-wizard-porodu-krok-zakoncz-bez-zgaszania-vs-zgos-do-irz">D6 — Wizard porodu: krok "zakończ bez zgłaszania" vs "zgłoś do IRZ"<a class="headerlink" href="#d6-wizard-porodu-krok-zakoncz-bez-zgaszania-vs-zgos-do-irz" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Czy zgłoszenie do IRZ jest opcją inline (podczas zamykania porodu) czy osobnym krokiem po fakcie?</p>
+<p><strong>Kontekst:</strong> Screenshot <code>06013_podsumowanie_zakoncz.png</code> pokazuje menu z opcjami "Zakończ" i "Zakończ bez zgłaszania" — sugeruje że wybór jest w kroku 3, przed podsumowaniem.</p>
+<p><strong>Decyzja:</strong> ✅ Potwierdzone przez Figmę — wybór opcji IRZ w kroku 3, podsumowanie (krok 4) zawsze następuje przed zapisem.</p>
+<hr />
+<h3 id="d7-krycie-towarowe-inbred-nie-jest-liczony">D7 — Krycie towarowe: inbred nie jest liczony<a class="headerlink" href="#d7-krycie-towarowe-inbred-nie-jest-liczony" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Czy przy kryciu towarowym (jeden tryk + wszystkie owce) w ogóle pokazujemy jakiekolwiek ostrzeżenia o inbredzie?</p>
+<p><strong>Kontekst:</strong> Krycie towarowe z definicji nie jest hodowlane — hodowca świadomie nie przejmuje się doborem genetycznym.</p>
+<p><strong>Rekomendacja:</strong> Nie liczyć inbredu dla krycia towarowego. Brak ostrzeżeń.</p>
+<p><strong>Decyzja: ⬜ potwierdzić z hodowcą</strong></p>
+<hr />
+<h3 id="d8-status-jagniecia-z-wada-co-to-znaczy-dla-systemu">D8 — Status jagnięcia "Z wadą": co to znaczy dla systemu<a class="headerlink" href="#d8-status-jagniecia-z-wada-co-to-znaczy-dla-systemu" title="Permanent link">&para;</a></h3>
+<p><strong>Pytanie:</strong> Jagnię "Z wadą" — czy jest traktowane jak żywe (ma numer PL, jest w stadzie) czy jak martwe (nie wchodzi do stada)?</p>
+<p><strong>Kontekst:</strong> Figma pokazuje 3 statusy: Żywe / Martwe / Z wadą. Z wadą to prawdopodobnie jagnię żywe, ale z defektem genetycznym/fizycznym — może żyć, ale nie powinno trafić do hodowli.</p>
+<p><strong>Rekomendacja:</strong> Z wadą = żywe w systemie (ma numer PL, rekord w <code>animals</code>), ale z flagą <code>defect = TRUE</code>. Wykluczone z planowania rozrodu.</p>
+<p><strong>Decyzja: ⬜ do potwierdzenia</strong></p>
+<hr />
+<h2 id="wnioski-z-analizy-systemu-festada-cz">WNIOSKI Z ANALIZY SYSTEMU FESTADA (CZ)<a class="headerlink" href="#wnioski-z-analizy-systemu-festada-cz" title="Permanent link">&para;</a></h2>
+<p>Poniżej lista elementów zidentyfikowanych w czeskim systemie, które warto uwzględnić lub świadomie odrzucić.</p>
+<h3 id="uwzglednione-juz-w-designie">Uwzględnione (już w designie)<a class="headerlink" href="#uwzglednione-juz-w-designie" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>breeding_line</code> — linia hodowlana (OSOBNA od rasy)</li>
+<li><code>mating_date</code> — data krycia per jagnię (osobna od daty porodu)</li>
+<li><code>in_heat</code> — ruja podczas krycia (bool)</li>
+<li><code>successfully_mated</code> — wynik krycia (bool)</li>
+<li><code>muscle_100d</code>, <code>fat_100d</code>, <code>weight_100d_kg</code> — wydajność mięsna 100 dni</li>
+<li><code>chip_number</code> — numer chipa NFC (osobny od kolczyka)</li>
+<li><code>cph_date</code>, <code>cph_percent</code> — Kontrola Produkcji Hodowlanej</li>
+</ul>
+<h3 id="odrzucone-swiadomie-lepsza-architektura">Odrzucone świadomie (lepsza architektura)<a class="headerlink" href="#odrzucone-swiadomie-lepsza-architektura" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>28 flat kolumn pedigree</strong> (Festada: <code>father_name</code>, <code>father_father_name</code>, …) → zastąpione self-referencing FK w <code>animals</code></li>
+<li><strong>5 flat kolumn potomka</strong> (Festada: <code>potomek1</code> … <code>potomek5</code>) → zastąpione tabelą <code>birth_lambs</code></li>
+<li><strong>Import macierzy inbredu z Excel</strong> → zastąpione algorytmem Wrighta in-app</li>
+<li><strong>Tylko desktop</strong> → mobile-first React Native</li>
+</ul>
+<h3 id="do-przemyslenia-festada-ma-my-nie">Do przemyślenia (Festada ma, my nie)<a class="headerlink" href="#do-przemyslenia-festada-ma-my-nie" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Moduł żywienia / paszy (Festada ma podstawowy) — <strong>Won't Have v1</strong></li>
+<li>Baza preparatów weterynaryjnych (Festada ma słownik leków) — <strong>Could Have v2</strong></li>
+<li>Masowe ważenie stada (ważenie wielu zwierząt jedną sesją) — <strong>Should Have v2</strong></li>
+</ul>
+<hr />
+<h2 id="decyzje-ux-z-figmy-potwierdzone">DECYZJE UX (z Figmy, potwierdzone)<a class="headerlink" href="#decyzje-ux-z-figmy-potwierdzone" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Decyzja</th>
+<th>Uzasadnienie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U1</td>
+<td>Rodowód: expandable inline (nie osobny ekran)</td>
+<td>Mniej skoków nawigacyjnych, szybszy przegląd</td>
+</tr>
+<tr>
+<td>U2</td>
+<td>Lista zwierząt: podsumowanie stada na górze (3 liczniki)</td>
+<td>Hodowca widzi od razu ile ma tryków/owiec/jagniąt</td>
+</tr>
+<tr>
+<td>U3</td>
+<td>Formularz leczenia: typ Ważenie domyślnie zaznaczony</td>
+<td>Ważenie jest najczęstszą operacją w formularzu</td>
+</tr>
+<tr>
+<td>U4</td>
+<td>Wizard porodu: 4 kroki zamiast 6</td>
+<td>Widoczne w Figmie: Matka → Poród → Jagnięta → Podsumowanie</td>
+</tr>
+<tr>
+<td>U5</td>
+<td>Karencje: tabela (nie lista kart)</td>
+<td>Dużo danych numerycznych, tabela czytelniejsza</td>
+</tr>
+<tr>
+<td>U6</td>
+<td>Krycie towarowe: osobny uproszczony wizard (4 kroki vs 8)</td>
+<td>Różna złożoność procesu</td>
+</tr>
+<tr>
+<td>U7</td>
+<td>Statystyki rozrodu + Kalendarz: jeden moduł (0304)</td>
+<td>Naturalnie powiązane — oba dają widok czasowy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="nastepne-kroki">NASTĘPNE KROKI<a class="headerlink" href="#nastepne-kroki" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>B1 priorytet</strong> — zaprojektować moduł 08 Konto (dane hodowcy, pula numerów PL)</li>
+<li><strong>B2</strong> — ekran zmiany statusu zwierzęcia (prosty modal/sheet)</li>
+<li><strong>B3</strong> — ekran historii wag (chart + lista)</li>
+<li><strong>D1–D5</strong> — zebrać decyzje techniczne z dev i/lub hodowcą beta</li>
+</ol>
+<hr />
+<p><em>Plik zaktualizowany po analizie 95 screenshotów Figma i systemu Festada (CZ).</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

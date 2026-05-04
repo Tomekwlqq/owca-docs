@@ -1,0 +1,1505 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentacja projektu aplikacji Owca PL">
+      
+      
+      
+        <link rel="canonical" href="https://tomekwlqq.github.io/owca-docs/data_lifecycle/">
+      
+      
+        <link rel="prev" href="../screen_map/">
+      
+      
+        <link rel="next" href="../gaps_and_decisions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Cykl życia danych - Owca PL — Dokumentacja projektu</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#owca-pl-cykl-zycia-danych-data-lifecycle" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-header__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Owca PL — Dokumentacja projektu
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cykl życia danych
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../functional_spec/" class="md-tabs__link">
+          
+  
+  
+  Dokumentacja
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../obsidian_historia_projektu/" class="md-tabs__link">
+          
+  
+  
+  Dziennik projektu
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Owca PL — Dokumentacja projektu" class="md-nav__button md-logo" aria-label="Owca PL — Dokumentacja projektu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Owca PL — Dokumentacja projektu
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dokumentacja
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dokumentacja
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functional_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specyfikacja funkcjonalna
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screen_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa ekranów
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cykl życia danych
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cykl życia danych
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zasada-nadrzedna-read-only-jako-cecha-kazdej-danej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zasada nadrzędna: Read-Only jako cecha każdej danej
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kategorie-danych-wedug-zywotnosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kategorie danych według żywotności
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kategorie danych według żywotności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#na-zawsze-dane-identyfikacyjne-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 Na zawsze — dane identyfikacyjne (Immutable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmiana-stanu-ze-sciezka-audytu-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Zmiana stanu — ze ścieżką audytu (State Machine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🟡 Zmiana stanu — ze ścieżką audytu (State Machine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automat-stanow-zwierzecia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automat stanów zwierzęcia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stany-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stany grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stany-porodu-birth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stany porodu (birth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serie-pomiarow-append-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Serie pomiarów — append-only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zdarzenia-append-only-zamkniete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟣 Zdarzenia — append-only, zamknięte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-zewnetrzny-jednorazowy-delta-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Import zewnętrzny — jednorazowy + delta sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zroda-danych-kto-co-tworzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Źródła danych — kto co tworzy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reguy-integralnosci-checklista-dla-dewelopera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reguły integralności — checklista dla dewelopera
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reguły integralności — checklista dla dewelopera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przed-zapisem-zdarzenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przed zapisem zdarzenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-zmianie-stanu-zwierzecia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy zmianie stanu zwierzęcia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-zamykaniu-porodu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy zamykaniu porodu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-planowaniu-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy planowaniu grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-dodawaniu-leczenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy dodawaniu leczenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-delete-zawsze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soft delete — zawsze
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dane-obliczane-przez-system-nie-przechowywane-flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dane obliczane przez system (nie przechowywane flat)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gaps_and_decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braki i decyzje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dziennik projektu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dziennik projektu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_historia_projektu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Historia projektu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsidian_plan_dev_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zasada-nadrzedna-read-only-jako-cecha-kazdej-danej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zasada nadrzędna: Read-Only jako cecha każdej danej
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kategorie-danych-wedug-zywotnosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kategorie danych według żywotności
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kategorie danych według żywotności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#na-zawsze-dane-identyfikacyjne-immutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 Na zawsze — dane identyfikacyjne (Immutable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmiana-stanu-ze-sciezka-audytu-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Zmiana stanu — ze ścieżką audytu (State Machine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🟡 Zmiana stanu — ze ścieżką audytu (State Machine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automat-stanow-zwierzecia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automat stanów zwierzęcia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stany-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stany grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stany-porodu-birth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stany porodu (birth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serie-pomiarow-append-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Serie pomiarów — append-only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zdarzenia-append-only-zamkniete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟣 Zdarzenia — append-only, zamknięte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-zewnetrzny-jednorazowy-delta-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Import zewnętrzny — jednorazowy + delta sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zroda-danych-kto-co-tworzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Źródła danych — kto co tworzy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reguy-integralnosci-checklista-dla-dewelopera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reguły integralności — checklista dla dewelopera
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reguły integralności — checklista dla dewelopera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przed-zapisem-zdarzenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przed zapisem zdarzenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-zmianie-stanu-zwierzecia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy zmianie stanu zwierzęcia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-zamykaniu-porodu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy zamykaniu porodu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-planowaniu-grupy-krycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy planowaniu grupy krycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przy-dodawaniu-leczenia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Przy dodawaniu leczenia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-delete-zawsze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soft delete — zawsze
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dane-obliczane-przez-system-nie-przechowywane-flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dane obliczane przez system (nie przechowywane flat)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="owca-pl-cykl-zycia-danych-data-lifecycle">Owca PL — Cykl Życia Danych (Data Lifecycle)<a class="headerlink" href="#owca-pl-cykl-zycia-danych-data-lifecycle" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Wersja: 1.0 | Data: 2026-05-01<br />
+Ten dokument definiuje reguły niezmienialności, źródła danych i automaty stanów.<br />
+<strong>Deweloper powinien przeczytać to przed M0.</strong></p>
+</blockquote>
+<hr />
+<h2 id="zasada-nadrzedna-read-only-jako-cecha-kazdej-danej">Zasada nadrzędna: Read-Only jako cecha każdej danej<a class="headerlink" href="#zasada-nadrzedna-read-only-jako-cecha-kazdej-danej" title="Permanent link">&para;</a></h2>
+<p>Każda dana w systemie ma naturalną właściwość niezmienialności (ro = read-only po zapisie).<br />
+Nie jest to ograniczenie techniczne — to odzwierciedlenie rzeczywistości hodowlanej.</p>
+<blockquote>
+<p>Owca urodziła się z konkretnym ojcem. Ważyła 3.2 kg przy urodzeniu. Dostała lek X w dniu Y.<br />
+Żadnego z tych faktów nie można "cofnąć" — można je co najwyżej uzupełnić lub skorygować nowym faktem.</p>
+</blockquote>
+<p><strong>Konsekwencja dla bazy danych:</strong><br />
+- Zdarzenia → zawsze <code>INSERT</code>, nigdy <code>UPDATE</code><br />
+- Stany → <code>UPDATE</code> tylko na dedykowanych polach stanu z datą zmiany<br />
+- Etykiety → <code>UPDATE</code> dozwolony (imię, notatki — nie są faktami biologicznymi)<br />
+- Usunięcie → nigdy <code>DELETE</code>, zawsze <code>is_deleted = TRUE</code> (soft delete)</p>
+<hr />
+<h2 id="kategorie-danych-wedug-zywotnosci">Kategorie danych według żywotności<a class="headerlink" href="#kategorie-danych-wedug-zywotnosci" title="Permanent link">&para;</a></h2>
+<h3 id="na-zawsze-dane-identyfikacyjne-immutable">🔵 Na zawsze — dane identyfikacyjne (Immutable)<a class="headerlink" href="#na-zawsze-dane-identyfikacyjne-immutable" title="Permanent link">&para;</a></h3>
+<p>Dane ustalone przy narodzeniu lub rejestracji. Nie zmieniają się nigdy.</p>
+<table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Tabela</th>
+<th>Uwaga</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pl_number</code></td>
+<td><code>animals</code></td>
+<td>Numer urzędowy ARiMR — niezmienny od urodzenia do śmierci</td>
+</tr>
+<tr>
+<td><code>chip_number</code></td>
+<td><code>animals</code></td>
+<td>Numer chipa NFC wszywanego raz</td>
+</tr>
+<tr>
+<td><code>birth_date</code></td>
+<td><code>animals</code></td>
+<td>Data biologiczna — fakt</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td><code>animals</code></td>
+<td>Płeć biologiczna</td>
+</tr>
+<tr>
+<td><code>father_id</code>, <code>mother_id</code></td>
+<td><code>animals</code></td>
+<td>Rodowód — self-referencing FK, ustalany przy urodzeniu</td>
+</tr>
+<tr>
+<td><code>breed</code></td>
+<td><code>animals</code></td>
+<td>Rasa — nie zmienia się po wpisaniu do ksiąg</td>
+</tr>
+<tr>
+<td><code>irz_number</code></td>
+<td><code>tenants</code></td>
+<td>Numer siedziby stada w ARiMR</td>
+</tr>
+<tr>
+<td><code>pzo_breeder_number</code></td>
+<td><code>tenants</code></td>
+<td>Numer hodowcy w Polskim Związku Owczarskim</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reguła implementacyjna:</strong> Te pola nie mają <code>updated_at</code>. Jeśli hodowca "poprawia" numer PL — to błąd wpisany przy rejestracji, nie zmiana faktu. Logować jako <code>correction_log</code>, nie nadpisywać.</p>
+<hr />
+<h3 id="zmiana-stanu-ze-sciezka-audytu-state-machine">🟡 Zmiana stanu — ze ścieżką audytu (State Machine)<a class="headerlink" href="#zmiana-stanu-ze-sciezka-audytu-state-machine" title="Permanent link">&para;</a></h3>
+<p>Dane które się zmieniają, ale każda zmiana jest nieodwracalna i wymaga śladu.</p>
+<h4 id="automat-stanow-zwierzecia">Automat stanów zwierzęcia<a class="headerlink" href="#automat-stanow-zwierzecia" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>         ┌─────────────────────────────────────────┐
+         │              alive (active)              │
+         └──┬──────────┬─────────────┬─────────────┘
+            │          │             │             │
+            ▼          ▼             ▼             ▼
+          sold    slaughtered       dead          lost
+        (sprzed.)  (ubój)         (padł)       (zaginął)
+</code></pre></div>
+<ul>
+<li>Przejście jest <strong>nieodwracalne</strong> — brak powrotu do <code>alive</code></li>
+<li>Każda zmiana stanu wymaga: <code>status_changed_at</code> (data) + <code>status_change_reason</code> (powód)</li>
+<li>Zwierzę w stanie <code>sold/dead/slaughtered</code> <strong>pozostaje w bazie</strong> (nie jest kasowane)<br />
+  → Potrzebne w rodowodach potomków, historii leczenia, statystykach sezonu</li>
+<li>Stan <code>external_archived</code> — specjalny dla tryków zewnętrznych po zakończeniu stanówki</li>
+</ul>
+<h4 id="stany-grupy-krycia">Stany grupy krycia<a class="headerlink" href="#stany-grupy-krycia" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>planned → active → closed
+</code></pre></div>
+<ul>
+<li><code>planned</code> → <code>active</code>: po dacie startu stanówki</li>
+<li><code>active</code> → <code>closed</code>: ręczne zamknięcie przez hodowcę (lub data końcowa minęła)</li>
+<li>Po <code>closed</code>: skład grupy jest immutable — nie można dodać/usunąć owcy</li>
+</ul>
+<h4 id="stany-porodu-birth">Stany porodu (birth)<a class="headerlink" href="#stany-porodu-birth" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>in_progress → closed
+</code></pre></div>
+<ul>
+<li><code>in_progress</code>: wizard otwarty, można edytować</li>
+<li><code>closed</code>: po zamknięciu — immutable. Korekta = nowe zdarzenie z adnotacją</li>
+</ul>
+<hr />
+<h3 id="serie-pomiarow-append-only">🟢 Serie pomiarów — append-only<a class="headerlink" href="#serie-pomiarow-append-only" title="Permanent link">&para;</a></h3>
+<p>Dane które przyrastają w czasie. Każdy nowy pomiar to nowy rekord — nigdy nadpisanie poprzedniego.</p>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Tabela</th>
+<th>Klucz serii</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wagi</td>
+<td><code>animal_weights</code></td>
+<td><code>animal_id</code> + <code>weighed_at</code></td>
+</tr>
+<tr>
+<td>Wydajność mięsna 100d</td>
+<td><code>animal_performance</code></td>
+<td><code>animal_id</code> + <code>measured_at</code></td>
+</tr>
+<tr>
+<td>Plenność maciorki</td>
+<td>obliczana z <code>births</code> + <code>birth_lambs</code></td>
+<td>nie przechowywana flat</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reguła:</strong> Jeśli hodowca wpisał złą wagę — nie edytuje rekordu. Dodaje nowy z adnotacją <code>is_correction = TRUE</code> i <code>corrects_id = &lt;id błędnego&gt;</code>. Błędny rekord dostaje flagę <code>is_superseded = TRUE</code>.</p>
+<hr />
+<h3 id="zdarzenia-append-only-zamkniete">🟣 Zdarzenia — append-only, zamknięte<a class="headerlink" href="#zdarzenia-append-only-zamkniete" title="Permanent link">&para;</a></h3>
+<p>Fakty które się wydarzyły. Po zamknięciu niezmienne — bo mogły już trafić do zewnętrznych rejestrów (IRZ, PZO).</p>
+<table>
+<thead>
+<tr>
+<th>Zdarzenie</th>
+<th>Tabela</th>
+<th>Zamknięcie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poród</td>
+<td><code>births</code> + <code>birth_lambs</code></td>
+<td>Po kliknięciu "Zakończ" — status <code>closed</code></td>
+</tr>
+<tr>
+<td>Leczenie / szczepienie</td>
+<td><code>treatments</code></td>
+<td>Po zapisie formularza</td>
+</tr>
+<tr>
+<td>Krycie (przypisanie owcy do grupy)</td>
+<td><code>breeding_group_ewes</code></td>
+<td>Po zamknięciu grupy</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reguła:</strong> Błąd w leczeniu → nowe zdarzenie z <code>is_correction = TRUE</code>, stare zostaje.<br />
+Dlaczego: karencje mogły już zostać przekazane weterynarzowi lub do IRZ.</p>
+<hr />
+<h3 id="import-zewnetrzny-jednorazowy-delta-sync">🔴 Import zewnętrzny — jednorazowy + delta sync<a class="headerlink" href="#import-zewnetrzny-jednorazowy-delta-sync" title="Permanent link">&para;</a></h3>
+<p>Dane pochodzące z instytucji zewnętrznych. Nie są "własnością" aplikacji — są kopią stanu zewnętrznego rejestru.</p>
+<table>
+<thead>
+<tr>
+<th>Źródło</th>
+<th>Co dostarcza</th>
+<th>Tabela</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARiMR (IRZ)</td>
+<td>pula numerów PL, potwierdzenia zgłoszeń</td>
+<td><code>ear_tag_numbers</code>, <code>irz_sync_log</code></td>
+</tr>
+<tr>
+<td>PZO / Związek</td>
+<td>świadectwo wpisu tryka, zestawienie maciorek</td>
+<td><code>pzo_certificates</code></td>
+</tr>
+<tr>
+<td>Skan PDF / OCR</td>
+<td>świadectwo w formie papierowej</td>
+<td><code>pzo_certificates</code> (pending review)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reguła:</strong> Każdy import logowany w <code>irz_sync_log</code> z datą, typem i statusem. Przy konflikcie (dane z IRZ różnią się od lokalnych) — wymagana ręczna weryfikacja hodowcy, nie automatyczne nadpisanie.</p>
+<hr />
+<h2 id="zroda-danych-kto-co-tworzy">Źródła danych — kto co tworzy<a class="headerlink" href="#zroda-danych-kto-co-tworzy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Źródło</th>
+<th>Tworzy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📱 Hodowca (app)</td>
+<td>animals, births, breeding_groups, status changes, weights</td>
+</tr>
+<tr>
+<td>🩺 Weterynarz / hodowca</td>
+<td>treatments, vaccinations, weighing events</td>
+</tr>
+<tr>
+<td>🏛️ PZO / Związek</td>
+<td>pzo_certificates (import OCR lub CSV)</td>
+</tr>
+<tr>
+<td>🏦 ARiMR / IRZ</td>
+<td>ear_tag_numbers (pula PL), irz_sync_log (potwierdzenia)</td>
+</tr>
+<tr>
+<td>⚙️ System (auto)</td>
+<td>meat_clear_at, milk_clear_at, inbreeding_coefficient, planned_birth_date, calendar_events</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reguy-integralnosci-checklista-dla-dewelopera">Reguły integralności — checklista dla dewelopera<a class="headerlink" href="#reguy-integralnosci-checklista-dla-dewelopera" title="Permanent link">&para;</a></h2>
+<h3 id="przed-zapisem-zdarzenia">Przed zapisem zdarzenia<a class="headerlink" href="#przed-zapisem-zdarzenia" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy <code>animal_id</code> istnieje i ma status <code>alive</code>?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy <code>tenant_id</code> zgadza się z zalogowanym użytkownikiem?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy numer PL nie jest już zajęty w tej puli?</li>
+</ul>
+<h3 id="przy-zmianie-stanu-zwierzecia">Przy zmianie stanu zwierzęcia<a class="headerlink" href="#przy-zmianie-stanu-zwierzecia" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy podano <code>status_changed_at</code>?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy podano <code>status_change_reason</code>?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy zwierzę nie jest już w stanie końcowym (dead/sold/slaughtered)?</li>
+</ul>
+<h3 id="przy-zamykaniu-porodu">Przy zamykaniu porodu<a class="headerlink" href="#przy-zamykaniu-porodu" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy każde żywe jagnię ma numer PL?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy <code>birth_lambs</code> ma przynajmniej jeden rekord?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy status porodu to <code>in_progress</code> (nie można zamknąć już zamkniętego)?</li>
+</ul>
+<h3 id="przy-planowaniu-grupy-krycia">Przy planowaniu grupy krycia<a class="headerlink" href="#przy-planowaniu-grupy-krycia" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy tryk ma status <code>alive</code>?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy każda owca w grupie ma status <code>alive</code>?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy owca nie jest już przypisana do innej aktywnej grupy w tym sezonie?</li>
+</ul>
+<h3 id="przy-dodawaniu-leczenia">Przy dodawaniu leczenia<a class="headerlink" href="#przy-dodawaniu-leczenia" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Czy <code>meat_withdrawal_days</code> i <code>milk_withdrawal_days</code> są podane przy lekach z karencją?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Automatycznie oblicz <code>meat_clear_at = treated_at + meat_withdrawal_days</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Automatycznie oblicz <code>milk_clear_at = treated_at + milk_withdrawal_days</code></li>
+</ul>
+<h3 id="soft-delete-zawsze">Soft delete — zawsze<a class="headerlink" href="#soft-delete-zawsze" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Nigdy nie używaj <code>DELETE</code> na rekordach zdarzeń, zwierząt, porodów, leczenia</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Zawsze <code>is_deleted = TRUE</code> + <code>last_modified_at = now()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Wyjątek dozwolony: draft/temp rekordy przed pierwszym save</li>
+</ul>
+<hr />
+<h2 id="dane-obliczane-przez-system-nie-przechowywane-flat">Dane obliczane przez system (nie przechowywane flat)<a class="headerlink" href="#dane-obliczane-przez-system-nie-przechowywane-flat" title="Permanent link">&para;</a></h2>
+<p>Poniższe wartości są <strong>zawsze obliczane on-the-fly</strong> lub <strong>cachowane z invalidacją</strong> — nigdy nie są ręcznie wpisywane:</p>
+<table>
+<thead>
+<tr>
+<th>Wartość</th>
+<th>Obliczana z</th>
+<th>Gdzie wyświetlana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Współczynnik inbredu (Wright)</td>
+<td><code>animals.father_id/mother_id</code> rekurencyjnie</td>
+<td>karta grupy krycia, karta pary</td>
+</tr>
+<tr>
+<td>Planowana data porodu</td>
+<td><code>breeding_group.mating_date + 147 dni</code></td>
+<td>karta grupy, kalendarz</td>
+</tr>
+<tr>
+<td>Plenność maciorki</td>
+<td>COUNT z <code>births</code> + <code>birth_lambs</code></td>
+<td>karta zwierzęcia, statystyki</td>
+</tr>
+<tr>
+<td>Aktywne karencje</td>
+<td><code>treatments</code> gdzie <code>meat_clear_at &gt; NOW()</code></td>
+<td>dashboard, tabela karencji</td>
+</tr>
+<tr>
+<td>Wiek zwierzęcia</td>
+<td><code>NOW() - animals.birth_date</code></td>
+<td>karta zwierzęcia</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Data lifecycle v1.0 — dokument żywy, aktualizowany przy zmianach schematu.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
